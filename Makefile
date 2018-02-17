@@ -8,5 +8,6 @@ run:
 	-p 8080:8080 \
 	-e MODULE_NAME=HelloWorld \
 	-e FUNCTION_HANDLER=execute \
+	-e FUNCTION_TIMEOUT=10 \
 	-v `pwd`/examples:/openbrisk \
 	openbrisk/brisk-runtime-ruby

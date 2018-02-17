@@ -1,7 +1,7 @@
 class HelloWorld
 
-    def execute(context)
-        return "Hello World!"
+    def execute()
+        return "Hello World!\n"
     end
 
 end

@@ -1,20 +1,23 @@
 require 'sinatra'
+require 'json'
+require_relative 'loader'
+
+load "/openbrisk/#{ENV["MODULE_NAME"]}.rb"
 
 get '/healthz' do
-    #logger.info "loading data"
     status 200
-    headers \
-        "Content-type" => "text/plain"
+    content_type :text
+    "" 
 end
 
 get '/' do
     status 200
-    headers \
-        "Content-type" => "text/plain"
+    function = Loader.new.loadFunction
+    function.call
 end
 
 post '/' do
     status 200
-    headers \
-        "Content-type" => "text/plain"    
+    function = Loader.new.loadFunction
+    function.call request.body.read.to_s
 end
